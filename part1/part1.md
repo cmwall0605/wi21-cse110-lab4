@@ -38,8 +38,8 @@
 19. This would return [6, 8, 10]. When modiifedArray is called, it is given an array [1, 2, 3] and the function doSomething as parameters. newArr is initialized as an array and then, for every item with index i in the parameter array, push the following value into newArr: run the parameter function, doSomething in this case, with the parameters of the int array[i] and the function which, given some parameter x, multiplies it by 2. The function doSomething run the given function with the parameter of the given number + 2 and returns that functions return value. Finally, return newArr. In short using the function doSomething as the callback, it pushes the following into newArr for each array item: (arrary[i] + 2 * 2). So for the array [1, 2, 3], we get (1 + 2) * 2 = 6, (2 + 2) * 2 = 8, and finally (3 + 2) * 2 = 10 pushed into the array, which gives us [6, 8, 10].
 20. SEE PROGRAM
 21. This code prints out:
->   1
->   4
->   3
->   2
+    1
+    4
+    3
+    2
     This is because the function first prints 1, then sets a timer of 1 second to print out 2. Then it sets a timer of 0 seconds to print out 3, meaning this will run as soon as the current function ends. After that, 4 is printed and this function ends. Then there is a new function that is run that prints out 3. Finally, after 1 second after the initial timeout function is called, 2 is printed.
