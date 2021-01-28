@@ -1,0 +1,45 @@
+1. Line 11 will output the value currently in i, as while i is declared in the for loop construct, because it is of type **var**, its scope is in the entire function, which includes line 11.
+2. Line 12 will output the value currently in discountedPrice (which is to say the value of finalPrice after the final loop in the for loop), as while discountedPrice is declared inside the for loop block of the function, because it is of type **var**, its scope is in the entire function.
+3. Line 13 will output the value currently in finalPrice(which is to say the value of finalPrice after the final loop in the for loop), as finalPrice is of type **var** and has scope in the entire function.
+4. The function will return the array [50, 100, 150]. This is because in the function, the var discounted is declared and set to be an array. Then, for each item in the prices array, the value is multiplied by (1 - discount), in this case, multiplied by 0.5. Then the value is rounded to the nearest hundreth and pushed into the discounted array, where its index is the same as its undicounted counterpart in the prices array. This means that 100 gives 100 * .5 = 50, 200 gives 200 * .5 = 100, and 300 * .5 = 150, so the var discounted = [50, 100, 150], which is returned at the end of the function.
+5. Line 11 will cause an error to occur. This is because the scope of i allows it to be reached only in the for loop block since it was of type **let** and was declared in the for loop construct. Since line 12 tries to call discountedPrice outside of the for loop, it throws an error.
+6. Line 12 will cause an error to occur. This is because the scope of finalPrice allows it to be reached only in the for loop block since it was of type **let** and was declared in the for loop block. Since line 12 tries to call discountedPrice outside of the for loop, it throws an error.
+7. Line 13 will reuturn the final value of the variable finalPrice (which is to say the value of finalPrice after the final loop in the for loop). This is because the scope of finalPrice allows it to be reached only in the function. Since line 13 is in the same function, it can ouput the value of finalPrice.
+8. The function will return the array [50, 100, 150]. The proof of 8 is essentially the same as in 4. This is because even though the variables were changed from **var** to **let**, the function still runs the same. Additionally, it returns discounted, which wouldnt be affected by the change because the return call is still in the same scope as the discounted variable.
+9. Line 11 will cause an error to occur. This is because the scope of i allows it to be reached only in the for loop block since it was of type **let** and was declared in the for loop construct. Since line 12 tries to call discountedPrice outside of the for loop, it throws an error.
+10. Line 12 will cause an error to occur. This is because the scope of finalPrice allows it to be reached only in the for loop block since it was of type **const** and was declared in the for loop block. Since line 12 tries to call discountedPrice outside of the for loop, it throws an error.
+11. Line 13 will print 0 assuming we comment out any lines that would cause an error. This is because, assuming we comment out the lines giving errors, finalPrice cannot have its value changed. So since line 13 is in the scope of the const finalPrice, it will print out the value of finalPrice, but because it is a **const**, once it is set to a value, it cannot be changed. So it will return the first value given to it, which is 0.
+12. The function will return [0, 0, 0], assuming we remove any code which would give errors. This is because in each iteration of the for loop, we push the value of finalPrice into the discounted array. The finalPrice is a const so it will always remain 0. This means we push 0 into discounted in every iteration of the for loop, and since the for loop runs x amount of times where x is the length of the prices array, it runs 3 times and pushes 0 into discounted 3 times, giving [0, 0, 0].
+13. 
+    * (A) student.name
+    * (B) student["Grad Year"]
+    * (C) student.greeting()
+    * (D) student["Favorite Teacher"].name
+    * (E) student.courseLoad[0]
+14. 
+    * (A) The string '32'. This is because that when using **+**, if any of the operands are strings, then all the other operands are converted into a string. So 2 becomes '2' and '3' + '2' = '32'.
+    * (B) The int 1. This is because **-** only supports ints and so converts the string into an int. '3' becomes 3 and 3 - 2 = 1.
+    * (C) The int 3. This is because **null** arithmatically converts to 0, so null becomes 0 and 3 + 0 = 3;
+    * (D) The string 3null. This is because that when using **+**, if any of the operands are strings, then all the other operands are converted into a string. so **null** becomes 'null' and '3' + 'null' = '3null'.
+    * (E) The int 4. This is because **true** arithmatically converts to 1, so the true becomes 1 and 1 + 3 = 4.
+    * (F) The int 0. This is because **false** arithmatically converts to 0, so the false becomes 0. **null** arithmatically converts to 0, so null becomes 0. This means the equation is now 0 + 0 = 0.
+    * (G) The string "3undefined". This is because when using **+**, if any of the operands are strings, then all the other operands are converted into a string. So **undefined** becomes "undefined" and "3" + "undefined" = "3undefined"
+    * (H) NaN. This is because **-** only supports ints and so converts the string and **undefined** into an int. The string arithmatically converts to 3. **undefined** arithmatically converts to NaN. SO "3" becomes 3, undefined becomes NaN, and 3 - NaN = NaN.
+15. 
+    * (A) True. This is because when comparing values, strings are converted into numbers, so '2' becomes 2, and 2 > 1 is a true statement.
+    * (B) False. This is because when you compare two strings, it is comparing them letter-by-letter by their unicode order. In this case, it first compares '2' from '2' and '1' from '12'. '2' is greater than '1', so '2' is greater than '12', which means '2' < '12' is false.
+    * (C) True. This is because when comparing values, strings are converted into numbers, so '2' becomes 2, and 2 == 2 is a true statement.
+    * (D) False. This because **===** is a strict comparison, we check for equality without type conversion. Since 2 is a number type and '2' is a string type, they are not strictly equal, so 2 === '2' is false.
+    * (E) False. This is because when comparing values, the boolean **true** becomes 1. 1 == 2 is false.
+    * (F) True. This is because Boolean(2) parses 2 as the boolean true. Then we are left with true === true. Since **===** is a strict comparison, we check for equality without type conversion. Both are of type boolean and both are true, so they are strictly equal, making 1 === Boolean(2) a true statement.
+16. The main difference between **==** and **===** is that **==** allows for type conversions when checking for equality while **===** does not. This mean that **===** is much stricter in its comparisons, checking for an equality in type as well.
+17. 'How are you?' would be printed into the console log. This is because the first conditional checked is (2 == true). true is arithmatically converted to 1, so the comparison is 2 == 1, which is false. Because this is false, it skips over the block and onto the nest else if statement. The statement 2 is not 0, which means it is converted into true. Because of this, its block is excecuted. Since this block executes, it ignores the remaining else if/else statements.
+18. SEE PROGRAM
+19. This would return [6, 8, 10]. When modiifedArray is called, it is given an array [1, 2, 3] and the function doSomething as parameters. newArr is initialized as an array and then, for every item with index i in the parameter array, push the following value into newArr: run the parameter function, doSomething in this case, with the parameters of the int array[i] and the function which, given some parameter x, multiplies it by 2. The function doSomething run the given function with the parameter of the given number + 2 and returns that functions return value. Finally, return newArr. In short using the function doSomething as the callback, it pushes the following into newArr for each array item: (arrary[i] + 2 * 2). So for the array [1, 2, 3], we get (1 + 2) * 2 = 6, (2 + 2) * 2 = 8, and finally (3 + 2) * 2 = 10 pushed into the array, which gives us [6, 8, 10].
+20. SEE PROGRAM
+21. This code prints out:  
+    1  
+    4  
+    3  
+    2  
+    This is because the function first prints 1, then sets a timer of 1 second to print out 2. Then it sets a timer of 0 seconds to print out 3, meaning this will run as soon as the current function ends. After that, 4 is printed and this function ends. Then there is a new function that is run that prints out 3. Finally, after 1 second after the initial timeout function is called, 2 is printed.
